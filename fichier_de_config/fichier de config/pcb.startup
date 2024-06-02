@@ -1,0 +1,10 @@
+cp /shared/interfacesPCB /etc/network/interfaces
+cp /shared/resolvPCB.conf /etc/resolv.conf
+/etc/init.d/networking restart
+
+systemctl start ssh
+useradd -m admin
+echo "admin:admin" | chpasswd
+
+apt update
+apt -y install ftp

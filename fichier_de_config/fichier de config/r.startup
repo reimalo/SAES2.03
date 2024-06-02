@@ -1,0 +1,5 @@
+cp /shared/interfacesR /etc/network/interfaces
+cp /shared/resolvR.conf /etc/resolv.conf
+/etc/init.d/networking restart
+
+iptables -t nat -A POSTROUTING -o eth3 -j MASQUERADE

@@ -1,0 +1,8 @@
+cp /shared/interfacesR_C /etc/network/interfaces
+cp /shared/resolvR_C.conf /etc/resolv.conf
+/etc/init.d/networking restart
+apt update
+apt install -y isc-dhcp-server
+cp /shared/isc-dhcp-serverR_C /etc/default/isc-dhcp-server
+cp /shared/dhcpdR_C.conf /etc/dhcp/dhcpd.conf
+systemctl start isc-dhcp-server

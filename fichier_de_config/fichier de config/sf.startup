@@ -1,0 +1,14 @@
+cp /shared/interfacesSF /etc/network/interfaces
+cp /shared/resolvSF.conf /etc/resolv.conf
+/etc/init.d/networking restart
+
+useradd -m admin
+echo "admin:admin" | chpasswd
+
+apt update
+apt install -o Dpkg::Options::="--force-confold" -y vsftpd
+cp /shared/vsftpd.conf /etc/vsftpd.conf
+/etc/init.d/vsftpd start
+echo "Fichier de SF" > /home/admin/test_sf.txt
+
+
